@@ -1,4 +1,6 @@
 <?php
+    const title="Popüler Kurslar";
+
     $kurs1_baslik="PHP Kursu";
     $kurs1_altBaslik="Sıfırdan ileri seviye PHP ile web geliştirme";
     $kurs1_resim="php.png";
@@ -19,6 +21,19 @@
     $kurs3_yayinTarihi="01.01.2023";
     $kurs3_yorumSayisi="500";
     $kurs3_begeniSayisi="300";
+
+    $kurs1_altBaslik=ucfirst(strtolower($kurs1_altBaslik));
+    $kurs2_altBaslik=ucfirst(strtolower($kurs2_altBaslik));
+    $kurs3_altBaslik=ucfirst(strtolower($kurs3_altBaslik));
+
+    $kurs1_altBaslik=substr($kurs1_altBaslik,0,30)."...";
+    $kurs2_altBaslik=substr($kurs2_altBaslik,0,30)."...";
+    $kurs3_altBaslik=substr($kurs3_altBaslik,0,30)."...";
+
+    $kurs1_url=str_replace([" ","."],["-","-"],$kurs1_baslik);
+    $kurs2_url=str_replace([" ","."],["-","-"],$kurs2_baslik);
+    $kurs3_url=str_replace([" ","."],["-","-"],$kurs3_baslik);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +46,7 @@
 </head>
 <body>
     <div class="container my-3">
+        <h1 class="mb-3"><?php echo title?></h1>
         <div class="card mb-3">
             <div class="row">
                <div class="col-3">
@@ -38,8 +54,11 @@
                </div>
                 <div class="col-9">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $kurs1_baslik; ?></h5>
-                        <p class="card-text"><?php echo $kurs1_altBaslik; ?></p>
+                        <h5 class="card-title">
+                            <a href="<?php echo $kurs1_url; ?>">
+                            <?php echo $kurs1_baslik; ?>
+                        </a></h5>
+                    <p class="card-text"><?php echo $kurs1_altBaslik; ?></p>
                         <span class="badge rounded-pill text-bg-primary">
                             begeni:<?php echo $kurs1_begeniSayisi?>
                         </span>
@@ -57,7 +76,10 @@
                </div>
                 <div class="col-9">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $kurs2_baslik; ?></h5>
+                        <h5 class="card-title">
+                            <a href="<?php echo $kurs2_url; ?>">
+                            <?php echo $kurs2_baslik; ?>
+                        </a></h5>
                         <p class="card-text"><?php echo $kurs2_altBaslik; ?></p>
                         <span class="badge rounded-pill text-bg-primary">
                             begeni:<?php echo $kurs2_begeniSayisi; ?>
@@ -76,7 +98,10 @@
                </div>
                 <div class="col-9">
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo $kurs3_baslik; ?></h5>
+                        <h5 class="card-title">
+                            <a href="<?php echo $kurs3_url; ?>">
+                            <?php echo $kurs3_baslik; ?>
+                        </a></h5>
                         <p class="card-text"><?php echo $kurs3_altBaslik; ?></p>
                         <span class="badge rounded-pill text-bg-primary">
                             begeni:<?php echo $kurs3_begeniSayisi; ?>
